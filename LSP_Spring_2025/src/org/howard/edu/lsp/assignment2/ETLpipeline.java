@@ -24,8 +24,8 @@ public class ETLpipeline {
             String line;
             br.readLine();  // Skip header row
             while ((line = br.readLine()) != null) {
-                String[] record = line.trim().split(",", -1);  // Directly split the line
-                if (record.length == 4) {  // Only proceed if we have the correct number of columns
+                String[] record = line.trim().split(",", -1);  
+                if (record.length == 4) {  
                     data.add(record);
                 }
             }
@@ -42,14 +42,14 @@ public class ETLpipeline {
         for (String[] record : data) {
             try {
                 String productID = record[0].trim();
-                String name = record[1].trim().toUpperCase(); // Convert to uppercase
+                String name = record[1].trim().toUpperCase(); 
                 double price = Double.parseDouble(record[2].trim());
                 String category = record[3].trim();
 
                 if (category.equalsIgnoreCase("Electronics")) {
-                    price *= 0.9; // Apply discount
-                    price = Math.round(price * 100.0) / 100.0; // Round to 2 decimal places
-                    if (price > 500) category = "Premium Electronics"; // Update category for premium products
+                    price *= 0.9; 
+                    price = Math.round(price * 100.0) / 100.0; 
+                    if (price > 500) category = "Premium Electronics"; 
                 }
 
                 transformedData.add(new String[]{productID, name, String.format("%.2f", price), category, getPriceRange(price)});
@@ -70,7 +70,7 @@ public class ETLpipeline {
 
     public static void load(String filePath, List<String[]> data) {
         try {
-            Files.createDirectories(Paths.get(filePath).getParent()); // Ensure directory exists
+            Files.createDirectories(Paths.get(filePath).getParent()); 
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) {
                 for (String[] record : data) {
                     bw.write(String.join(",", record));
