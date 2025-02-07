@@ -22,7 +22,7 @@ public class ETLpipeline {
         List<String[]> data = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
-            br.readLine();  // Skip header row
+            br.readLine();  
             while ((line = br.readLine()) != null) {
                 String[] record = line.trim().split(",", -1);  
                 if (record.length == 4) {  
