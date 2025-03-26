@@ -7,17 +7,17 @@ public class Music implements Streamable {
         this.title = title;
     }
     
-    @Override
+ 
     public void play() {
         System.out.println("Playing music: " + title);
     }
     
-    @Override
+
     public void pause() {
         System.out.println("Paused music: " + title);
     }
     
-    @Override
+ 
     public void stop() {
         System.out.println("Stopped music: " + title);
     }

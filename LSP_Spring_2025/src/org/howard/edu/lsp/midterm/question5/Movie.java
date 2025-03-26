@@ -7,17 +7,17 @@ public class Movie implements Streamable {
         this.title = title;
     }
     
-    @Override
+
     public void play() {
         System.out.println("Playing movie: " + title);
     }
     
-    @Override
+
     public void pause() {
         System.out.println("Paused movie: " + title);
     }
     
-    @Override
+
     public void stop() {
         System.out.println("Stopped movie: " + title);
     }
