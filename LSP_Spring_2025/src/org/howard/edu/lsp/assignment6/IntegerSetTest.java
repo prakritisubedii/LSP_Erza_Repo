@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 
-
 public class IntegerSetTest {
 
     @Test
@@ -169,3 +168,14 @@ public class IntegerSetTest {
     }
 
     @Test
+    @DisplayName("Test case for toString()")
+    public void testToString() {
+        IntegerSet set = new IntegerSet();
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        assertEquals("[1, 2, 3]", set.toString(), "String representation of the set should be correct");
+    }
+}
+ 
+
